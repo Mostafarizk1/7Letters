@@ -8,12 +8,8 @@ import {
   Palette,
   Film,
   Code,
-  Megaphone,
   Video,
-  PenTool,
-  Globe,
   Smartphone,
-  BarChart,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import SaduPattern from "@/components/SaduPattern";

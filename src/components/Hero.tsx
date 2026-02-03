@@ -5,7 +5,7 @@ import { ArrowDown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
-  const { t, dir } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section

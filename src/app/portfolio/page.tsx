@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, ExternalLink } from "lucide-react";
+import { Play } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import SaduPattern from "@/components/SaduPattern";
 import Navbar from "@/components/Navbar";

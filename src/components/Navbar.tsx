@@ -11,7 +11,7 @@ import Link from "next/link";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { locale, setLocale, t, dir } = useLanguage();
+  const { locale, setLocale, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {

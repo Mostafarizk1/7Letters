@@ -1,9 +1,6 @@
 "use client";
 
-import { useTheme } from "@/context/ThemeContext";
-
 export default function Logo() {
-  const { theme } = useTheme();
   
   return (
     <div className="flex items-center gap-2">
