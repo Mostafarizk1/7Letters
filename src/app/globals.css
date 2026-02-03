@@ -1,0 +1,88 @@
+/* 1. استدعاء الخط مباشرة من جوجل (ده اللي هيحل المشكلة) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #f3f0e9;
+    --foreground: #231f20;
+  }
+
+  .dark {
+    --background: #231f20;
+    --foreground: #f3f0e9;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#f3f0e9] text-[#231f20] dark:bg-[#231f20] dark:text-[#f3f0e9] transition-colors duration-300 font-medium;
+  }
+
+  /* 2. الإجبار: أي عنصر في الموقع هياخد الخط ده غصب عنه */
+  html, body, *, [dir="rtl"], [dir="ltr"] {
+    font-family: 'IBM Plex Sans Arabic', sans-serif !important;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#A6192E] text-white px-6 py-3 rounded-lg font-medium 
+           hover:bg-[#8a1325] transition-all duration-300 
+           hover:shadow-lg;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-background-light/80 dark:bg-background-dark/80;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .rtl-flip {
+    [dir="rtl"] & {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+/* =========================================
+   START: SMART MARQUEE ANIMATION LOGIC
+   ========================================= */
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333333%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-33.333333%); } 
+  100% { transform: translateX(0); }
+}
+
+.animate-scroll {
+  display: flex;
+  min-width: 100%;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+
+[dir="rtl"] .animate-scroll {
+  animation: scroll-right 40s linear infinite; 
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
