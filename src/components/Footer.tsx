@@ -3,12 +3,8 @@
 import { motion } from "framer-motion";
 import {
   Download,
-  Instagram,
-  Twitter,
-  Linkedin,
-  Youtube,
+  MessageCircle,
   Mail,
-  Phone,
   MapPin,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -17,36 +13,32 @@ import Logo from "./Logo";
 export default function Footer() {
   const { t, locale } = useLanguage();
 
-  const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-  ];
-
   const contactInfo = [
+    {
+      icon: MessageCircle,
+      text: "+966 53 977 7980",
+      href: "https://wa.me/966539777980",
+      label: locale === "ar" ? "واتساب" : "WhatsApp",
+    },
     {
       icon: Mail,
       text: "info@7letters.sa",
       href: "mailto:info@7letters.sa",
-    },
-    {
-      icon: Phone,
-      text: "+966 50 123 4567",
-      href: "tel:+966501234567",
+      label: locale === "ar" ? "البريد الإلكتروني" : "Email",
     },
     {
       icon: MapPin,
       text: locale === "ar" ? "الرياض، المملكة العربية السعودية" : "Riyadh, Saudi Arabia",
       href: "#",
+      label: locale === "ar" ? "العنوان" : "Address",
     },
   ];
 
   return (
-    <footer id="contact" className="bg-background-dark text-foreground-dark">
+    <footer className="bg-background-dark text-foreground-dark">
       <div className="max-w-7xl mx-auto section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+          <div>
             <Logo />
             <p className="mt-6 text-foreground-dark/70 max-w-md">
               {locale === "ar"
@@ -55,7 +47,7 @@ export default function Footer() {
             </p>
 
             <motion.a
-              href="/company-profile.pdf"
+              href=""
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -67,24 +59,6 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">{t.footer.followUs}</h4>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  whileHover={{ scale: 1.2, y: -3 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-12 h-12 bg-foreground-dark/10 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          <div>
             <h4 className="text-lg font-bold mb-6">
               {locale === "ar" ? "تواصل معنا" : "Contact Us"}
             </h4>
@@ -93,6 +67,8 @@ export default function Footer() {
                 <motion.a
                   key={index}
                   href={info.href}
+                  target={info.href.startsWith("https") ? "_blank" : undefined}
+                  rel={info.href.startsWith("https") ? "noopener noreferrer" : undefined}
                   whileHover={{ x: locale === "ar" ? -5 : 5 }}
                   className="flex items-center gap-3 text-foreground-dark/70 hover:text-primary transition-colors"
                 >

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
+import { Mail, MapPin, Send, Clock, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import SaduPattern from "@/components/SaduPattern";
 import Navbar from "@/components/Navbar";
@@ -42,11 +42,11 @@ export default function ContactPage() {
       href: "mailto:info@sevenletters.sa",
     },
     {
-      icon: Phone,
-      titleAr: "الهاتف",
-      titleEn: "Phone",
-      value: "+966 50 123 4567",
-      href: "tel:+966501234567",
+      icon: MessageCircle,
+      titleAr: "واتساب",
+      titleEn: "WhatsApp",
+      value: "+966 53 977 7980",
+      href: "https://wa.me/966539777980",
     },
     {
       icon: MapPin,
@@ -242,22 +242,6 @@ export default function ContactPage() {
                   </motion.a>
                 ))}
 
-                {/* Map Placeholder */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="mt-8 aspect-video bg-foreground-light/5 dark:bg-foreground-dark/5 rounded-2xl overflow-hidden relative"
-                >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="w-12 h-12 text-primary mx-auto mb-2" />
-                      <p className="text-foreground-light/50 dark:text-foreground-dark/50">
-                        {locale === "ar" ? "خريطة الموقع" : "Location Map"}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
           </div>

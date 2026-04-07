@@ -9,9 +9,8 @@ import Footer from "@/components/Footer";
 
 const stats = [
   { value: "50+", labelAr: "مشروع منجز", labelEn: "Projects Completed" },
-  { value: "20+", labelAr: "عميل سعيد", labelEn: "Happy Clients" },
   { value: "10+", labelAr: "سنوات خبرة", labelEn: "Years Experience" },
-  { value: "15+", labelAr: "فريق محترف", labelEn: "Team Members" },
+  { value: "50+", labelAr: "فني محترف", labelEn: "Professional Technicians" },
 ];
 
 const values = [
@@ -91,7 +90,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24"
+            className="grid grid-cols-3 gap-6 mb-24"
           >
             {stats.map((stat, index) => (
               <motion.div
