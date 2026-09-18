@@ -6,6 +6,8 @@ import {
   MessageCircle,
   Mail,
   MapPin,
+  Instagram,
+  Linkedin,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Logo from "./Logo";
@@ -22,9 +24,21 @@ export default function Footer() {
     },
     {
       icon: Mail,
-      text: "info@7letters.sa",
-      href: "mailto:info@7letters.sa",
+      text: "ahmed@7letters.sa",
+      href: "mailto:ahmed@7letters.sa",
       label: locale === "ar" ? "البريد الإلكتروني" : "Email",
+    },
+    {
+      icon: Instagram,
+      text: "@7letters.sa",
+      href: "https://www.instagram.com/7letters.sa/",
+      label: "Instagram",
+    },
+    {
+      icon: Linkedin,
+      text: "7Letters",
+      href: "https://www.linkedin.com/company/7letters-sa/",
+      label: "LinkedIn",
     },
     {
       icon: MapPin,

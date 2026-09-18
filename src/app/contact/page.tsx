@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Clock, MessageCircle } from "lucide-react";
+import { Mail, MapPin, Send, Clock, MessageCircle, Instagram, Linkedin } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import SaduPattern from "@/components/SaduPattern";
 import Navbar from "@/components/Navbar";
@@ -38,8 +38,22 @@ export default function ContactPage() {
       icon: Mail,
       titleAr: "البريد الإلكتروني",
       titleEn: "Email",
-      value: "info@sevenletters.sa",
-      href: "mailto:info@sevenletters.sa",
+      value: "ahmed@7letters.sa",
+      href: "mailto:ahmed@7letters.sa",
+    },
+    {
+      icon: Instagram,
+      titleAr: "إنستغرام",
+      titleEn: "Instagram",
+      value: "@7letters.sa",
+      href: "https://www.instagram.com/7letters.sa/",
+    },
+    {
+      icon: Linkedin,
+      titleAr: "لينكدإن",
+      titleEn: "LinkedIn",
+      value: "7Letters",
+      href: "https://www.linkedin.com/company/7letters-sa/",
     },
     {
       icon: MessageCircle,
@@ -222,6 +236,8 @@ export default function ContactPage() {
                   <motion.a
                     key={index}
                     href={info.href}
+                    target={info.href.startsWith("https") ? "_blank" : undefined}
+                    rel={info.href.startsWith("https") ? "noopener noreferrer" : undefined}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
